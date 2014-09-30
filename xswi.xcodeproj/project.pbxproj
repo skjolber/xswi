@@ -68,7 +68,6 @@
 		4BFF624019DAF5300035CB78 /* Wizard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Wizard.h; sourceTree = "<group>"; };
 		4BFF624119DAF5300035CB78 /* Wizard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Wizard.m; sourceTree = "<group>"; };
 		4BFF624219DAF5300035CB78 /* XMLSerializable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLSerializable.h; sourceTree = "<group>"; };
-		4BFF624319DAF5300035CB78 /* XMLStreamWriter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XMLStreamWriter.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -164,7 +163,6 @@
 				4BFF624019DAF5300035CB78 /* Wizard.h */,
 				4BFF624119DAF5300035CB78 /* Wizard.m */,
 				4BFF624219DAF5300035CB78 /* XMLSerializable.h */,
-				4BFF624319DAF5300035CB78 /* XMLStreamWriter.h */,
 				4BFF622519DAF47F0035CB78 /* Supporting Files */,
 			);
 			path = xswiTests;
@@ -485,6 +483,7 @@
 				4BFF623019DAF47F0035CB78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4BFF623119DAF47F0035CB78 /* Build configuration list for PBXNativeTarget "xswiTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +492,7 @@
 				4BFF623319DAF47F0035CB78 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

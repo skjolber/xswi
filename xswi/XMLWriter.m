@@ -11,7 +11,7 @@
  * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
  * copies of the Software, and to permit persons to whom the Software is
  * furnished to do so, subject to the following conditions:
- * 
+ *
  * The above copyright notice and this permission notice shall be included in
  * all copies or substantial portions of the Software.
  *
@@ -69,10 +69,10 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		level = 0;
 		openElement = NO;
 		emptyElement = NO;
-		 
+        
 		elementLocalNames = [[NSMutableArray alloc]init];
 		elementNamespaceURIs = [[NSMutableArray alloc]init];
-		 
+        
 		namespaceURIs = [[NSMutableArray alloc]init];
 		namespaceCounts = [[NSMutableArray alloc]init];
 		namespaceWritten = [[NSMutableArray alloc]init];
@@ -81,8 +81,6 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		prefixNamespaceURIMap = [[NSMutableDictionary alloc] init];
 		
 		// load default custom behaviour
-		indentation = @"\t";
-		lineBreak = @"\n";
 		automaticEmptyElements = YES;
 		
 		// setup default xml namespaces. assume both are previously known.
@@ -101,8 +99,8 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		[namespaceCounts addObject:previousCount];
 	} else {
 		// the count has changed, save the it
-		NSNumber* count = [NSNumber numberWithInt:[namespaceURIs count]];
-	
+		NSNumber* count = [NSNumber numberWithInt:(int)[namespaceURIs count]];
+        
 		[namespaceCounts addObject:count];
 	}
 }
@@ -165,11 +163,11 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		@throw([NSException exceptionWithName:@"XMLWriterException" reason:@"Prefix cannot be NULL" userInfo:NULL]);
 	}
 	if([namespaceURIPrefixMap objectForKey:namespaceURI]) {
-		// raise exception	
+		// raise exception
 		@throw([NSException exceptionWithName:@"XMLWriterException" reason:[NSString stringWithFormat:@"Name namespace %@ has already been set", namespaceURI] userInfo:NULL]);
 	}
 	if([prefixNamespaceURIMap objectForKey:prefix]) {
-		// raise exception	
+		// raise exception
 		if([prefix length]) {
 			@throw([NSException exceptionWithName:@"XMLWriterException" reason:[NSString stringWithFormat:@"Prefix %@ has already been set", prefix] userInfo:NULL]);
 		} else {
@@ -185,11 +183,11 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	if(openElement) { // write the namespace now
 		[self writeNamespaceToStream:prefix namespaceURI:namespaceURI];
 		
-		[namespaceWritten addObject:NSBOOL(YES)];		
+		[namespaceWritten addObject:NSBOOL(YES)];
 	} else {
 		// write the namespace as the next start element is closed
-		[namespaceWritten addObject:NSBOOL(NO)];	
-	}	
+		[namespaceWritten addObject:NSBOOL(NO)];
+	}
 }
 
 - (NSString*)getPrefix:(NSString*)namespaceURI {
@@ -237,20 +235,19 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		if(aEncoding) {
 			[self write:@" encoding=\""];
 			[self write:aEncoding];
-			[self write:@"\""];			
+			[self write:@"\""];
 			
 			encoding = aEncoding;
-			[aEncoding retain];
 		}
-		[self write:@" ?>"];	
+		[self write:@" ?>"];
 		
-	}	
+	}
 }
 
 - (void) writeEndDocument {
 	while (level > 0) {
 		[self writeEndElement];
-	} 
+	}
 }
 
 - (void) writeStartElement:(NSString *)localName {
@@ -271,9 +268,9 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	[self pushNamespaceStack];
 	
 	if(empty) {
-		[self write:@" />"];			
+		[self write:@" />"];
 	} else {
-		[self write:@">"];			
+		[self write:@">"];
 	}
 	
 	openElement = NO;
@@ -288,8 +285,8 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		// go for <START />
 		[self writeCloseElement:YES]; // write empty end element
 		
-		[self popNamespaceStack];	
-		[self popElementStack];	
+		[self popNamespaceStack];
+		[self popElementStack];
 		
 		emptyElement = YES;
 		openElement = NO;
@@ -315,7 +312,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	[self writeLinebreak];
 	[self writeIndentation];
 	
-	[self write:@"<"];	
+	[self write:@"<"];
 	if(namespaceURI) {
 		NSString* prefix = [namespaceURIPrefixMap objectForKey:namespaceURI];
 		
@@ -325,11 +322,11 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		}
 		
 		if([prefix length]) {
-			[self write:prefix];	
-			[self write:@":"];						
+			[self write:prefix];
+			[self write:@":"];
 		}
 	}
-	[self write:localName];	
+	[self write:localName];
 	
 	[self pushElementStack:namespaceURI localName:localName];
 	
@@ -358,7 +355,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		} else {
 			// go for <START>characters<END>
 		}
-	}		
+	}
 	
 	// write standard end element
 	[self write:@"</"];
@@ -372,16 +369,16 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		}
 		
 		if([prefix length]) {
-			[self write:prefix];	
-			[self write:@":"];						
+			[self write:prefix];
+			[self write:@":"];
 		}
 	}
 	
 	[self write:localName];
 	[self write:@">"];
 	
-	[self popNamespaceStack];	
-	[self popElementStack];	
+	[self popNamespaceStack];
+	[self popElementStack];
 	
 	emptyElement = YES;
 	openElement = NO;
@@ -395,8 +392,8 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	[self writeLinebreak];
 	[self writeIndentation];
 	
-	[self write:@"<"];	
-	[self write:localName];	
+	[self write:@"<"];
+	[self write:localName];
 	[self write:@" />"];
 	
 	emptyElement = YES;
@@ -422,12 +419,12 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		}
 		
 		if([prefix length]) {
-			[self write:prefix];	
-			[self write:@":"];						
+			[self write:prefix];
+			[self write:@":"];
 		}
 	}
 	
-	[self write:localName];	
+	[self write:localName];
 	[self write:@" />"];
 	
 	emptyElement = YES;
@@ -435,36 +432,36 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 }
 
 - (void) writeAttribute:(NSString *)localName value:(NSString *)value {
-	[self writeAttributeWithNamespace:NULL localName:localName value:value];		
+	[self writeAttributeWithNamespace:NULL localName:localName value:value];
 }
 
 - (void) writeAttributeWithNamespace:(NSString *)namespaceURI localName:(NSString *)localName value:(NSString *)value {
-	if(openElement) {		
-		[self write:@" "];				
+	if(openElement) {
+		[self write:@" "];
 		
 		if(namespaceURI) {
 			NSString* prefix = [namespaceURIPrefixMap objectForKey:namespaceURI];
 			if(!prefix) {
-				// raise exception		
+				// raise exception
 				@throw([NSException exceptionWithName:@"XMLWriterException" reason:[NSString stringWithFormat:@"Unknown namespace URI %@", namespaceURI] userInfo:NULL]);
 			}
 			
 			if([prefix length]) {
-				[self write:prefix];	
+				[self write:prefix];
 				[self write:@":"];
 			}
 		}
-		[self write:localName];	
-		[self write:@"=\""];			
+		[self write:localName];
+		[self write:@"=\""];
 		[self writeEscape:value];
-		[self write:@"\""];			
+		[self write:@"\""];
 	} else {
 		// raise expection
 		@throw([NSException exceptionWithName:@"XMLWriterException" reason:@"No open start element" userInfo:NULL]);
 	}
 }
 
-- (void)setDefaultNamespace:(NSString*)namespaceURI {	
+- (void)setDefaultNamespace:(NSString*)namespaceURI {
 	[self setPrefix:EMPTY_STRING namespaceURI:namespaceURI];
 }
 
@@ -474,7 +471,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	} else {
 		// raise exception
 		@throw([NSException exceptionWithName:@"XMLWriterException" reason:@"No open start element" userInfo:NULL]);
-	}	
+	}
 }
 
 - (void) writeDefaultNamespace:(NSString*)namespaceURI {
@@ -485,10 +482,10 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	return [prefixNamespaceURIMap objectForKey:prefix];
 }
 
--(void) writeNamespaceToStream:(NSString*)prefix namespaceURI:(NSString*)namespaceURI {	
+-(void) writeNamespaceToStream:(NSString*)prefix namespaceURI:(NSString*)namespaceURI {
 	if(openElement) { // write the namespace now
 		[self write:@" "];
-	
+        
 		NSString* xmlnsPrefix = [self getPrefix:XMLNS_NAMESPACE_URI];
 		if(!xmlnsPrefix) {
 			// raise exception
@@ -498,13 +495,13 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		[self write:xmlnsPrefix]; // xmlns
 		if([prefix length]) {
 			// write xmlns:prefix="namespaceURI" attribute
-		
+            
 			[self write:@":"]; // colon
 			[self write:prefix]; // prefix
 		} else {
 			// write xmlns="namespaceURI" attribute
 		}
-		[self write:@"=\""];			
+		[self write:@"=\""];
 		[self writeEscape:namespaceURI];
 		[self write:@"\""];
 	} else {
@@ -522,13 +519,13 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	emptyElement = NO;
 }
 
-- (void) writeComment:(NSString*)comment {	
+- (void) writeComment:(NSString*)comment {
 	if(openElement) {
 		[self writeCloseElement:NO];
 	}
-	[self write:@"<!--"];						
+	[self write:@"<!--"];
 	[self write:comment]; // no escape
-	[self write:@"-->"];						
+	[self write:@"-->"];
 	
 	emptyElement = NO;
 }
@@ -537,11 +534,11 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	if(openElement) {
 		[self writeCloseElement:NO];
 	}
-	[self write:@"<![CDATA["];						
+	[self write:@"<![CDATA["];
 	[self write:target]; // no escape
-	[self write:@" "];						
+	[self write:@" "];
 	[self write:data]; // no escape
-	[self write:@"]]>"];						
+	[self write:@"]]>"];
 	
 	emptyElement = NO;
 }
@@ -550,24 +547,24 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	if(openElement) {
 		[self writeCloseElement:NO];
 	}
-	[self write:@"<![CDATA["];						
-	[self write:cdata]; // no escape						
-	[self write:@"]]>"];						
+	[self write:@"<![CDATA["];
+	[self write:cdata]; // no escape
+	[self write:@"]]>"];
 	
 	emptyElement = NO;
 }
 
 - (void) write:(NSString*)value {
-	[writer appendString:value];			
+	[writer appendString:value];
 }
 
 - (void) writeEscape:(NSString*)value {
 	
-	const UniChar *characters = CFStringGetCharactersPtr((CFStringRef)value);  
+	const UniChar *characters = CFStringGetCharactersPtr((CFStringRef)value);
 	
 	if (characters) {
 		// main flow
-		[self writeEscapeCharacters:characters length:[value length]];
+		[self writeEscapeCharacters:characters length:(int)[value length]];
 	} else {
 		// we need to read/copy the characters for some reason, from the docs of CFStringGetCharactersPtr:
 		// A pointer to a buffer of Unicode character or NULL if the internal storage of the CFString does not allow this to be returned efficiently.
@@ -587,7 +584,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 			if(count + 256 < [value length]) {
 				length = 256;
 			} else {
-				length = [value length] - count;
+				length = (int)[value length] - count;
 			}
 			
 			[value getCharacters:[data mutableBytes] range:NSMakeRange(count, length)];
@@ -640,7 +637,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 						[self write:@"&lt;"];
 						
 						break;
-					}						
+					}
 						// lt;
 					case 62: {
 						// write range if any
@@ -660,7 +657,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 						// note: we dont need to escape char 39 for &apos; because we use double quotes exclusively
 						
 						continue;
-					}						
+					}
 				}
 				
 				// set range start to next
@@ -673,7 +670,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 					rangeLength++;
 					
 					continue;
-				} else {			
+				} else {
 					// invalid, skip
 				}
 			}
@@ -707,15 +704,15 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 
 - (void)writeLinebreak {
 	if(lineBreak) {
-		[self write:lineBreak];						
+		[self write:lineBreak];
 	}
 }
 
 - (void)writeIndentation {
 	if(indentation) {
 		for (int i = 0; i < level; i++ ) {
-			[self write:indentation];						
-		}	
+			[self write:indentation];
+		}
 	}
 }
 
@@ -739,24 +736,10 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	}
 }
 
--(void) dealloc {
-    [writer release];
-	[encoding release];
-	
-	[elementLocalNames release];
-	[elementNamespaceURIs release];
-	
-	[namespaceURIs release];
-	[namespaceCounts release];
-	[namespaceWritten release];
-	
-	[namespaceURIPrefixMap release];
-	[prefixNamespaceURIMap release];
-	
-	[indentation release];
-	[lineBreak release];
-	
-    [super dealloc];
+- (void) setPrettyPrinting:(NSString*)aIndentation withLineBreak:(NSString*)aLineBreak {
+    self.indentation = aIndentation;
+    self.lineBreak = aLineBreak;
 }
+
 
 @end

@@ -59,6 +59,8 @@
 // close the writer and buffers, if any
 - (void) close;
 
+- (void) setPrettyPrinting:(NSString*)indentation withLineBreak:(NSString*)lineBreak;
+
 @end
 
 // xml stream writer with namespace support

@@ -16,11 +16,6 @@
     return self;
 }
 
-- (void) dealloc {
-    self.name = nil;    
-    [super dealloc];
-}
-
 - (void) write:(id<XMLStreamWriter>)writer {
 	// do superclass behaviour here
 

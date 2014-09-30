@@ -11,7 +11,7 @@
 - (id)init {
  
     if ((self = [super init])) {
-        self.players = [[[NSMutableArray alloc] init] autorelease];
+        self.players = [[NSMutableArray alloc] init];
     }
     return self;
     
@@ -32,9 +32,5 @@
 	[writer writeEndDocument];
 }
 
-- (void) dealloc {
-    self.players = nil;    
-    [super dealloc];
-}
 
 @end
