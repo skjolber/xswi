@@ -154,4 +154,4 @@ gives
 which is easier on the eyes.
 
 # Further reading #
-For more advanced topics, see [more examples](http://code.google.com/p/xswi/wiki/SerializingObjectsToXML) or the [wiki overview](http://code.google.com/p/xswi/w/list).
+For more advanced topics, see [more examples](SerializingObjectsToXML.md) or the [wiki overview](https://github.com/skjolber/xswi/tree/wiki).

@@ -32,6 +32,6 @@ Note that small documents are relative to the available memory. As a rule of thu
   * if you need a simple tool for just writing XML in any format
 
 # Gotchas #
-If you were planing on writing your own little text-appending XML code snippet (how hard can that really be?), **forget that and use a proper tool instead** - if not this project then [another](http://code.google.com/p/xswi/wiki/Alternatives). If not then someone will come and enter some text string like for example 'M&M' and your XML will (silently) be invalid, and will NOT be accepted by any XML parser and backfire as to demonstrate that you do not even master XML, which is a simple and fundamental format on the modern Internet.
+If you were planing on writing your own little text-appending XML code snippet (how hard can that really be?), **forget that and use a proper tool instead** - if not this project then [another](Alternatives). If not then someone will come and enter some text string like for example 'M&M' and your XML will (silently) be invalid, and will NOT be accepted by any XML parser and backfire as to demonstrate that you do not even master XML, which is a simple and fundamental format on the modern Internet.
 
 Also **please** always use UTF text encoding for your XML, or my name 'Thomas Skjølberg' will like like 'Thomas SkjÃƒÆ’Ã‚Â¸lberg', which I really hate :P

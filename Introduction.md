@@ -49,4 +49,4 @@ produces the following XML:
 <abc:Root xmlns:abc="urn:my:namespace:uri">Text content for root element with namespace</abc:Root>
 ```
 
-You may write any XML document using this serializer. For further examples, see [this wiki page](http://code.google.com/p/xswi/wiki/Examples).
+You may write any XML document using this serializer. For further examples, see [this wiki page](Examples.md).
