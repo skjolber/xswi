@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="XSWI : XML Stream Writer for iOS">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>XSWI</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/skjolber/xswi">View on GitHub</a>
+
+          <h1 id="project_title">XSWI</h1>
+          <h2 id="project_tagline">XML Stream Writer for iOS</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/skjolber/xswi/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/skjolber/xswi/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="overview" class="anchor" href="#overview" aria-hidden="true"><span class="octicon octicon-link"></span></a>Overview</h1>
+
+<p>The XSWI project hosts a <strong>simple, standalone XML stream writer for iOS</strong> implemented in Objective-C. <br>
+As such, it can be used for iPhone, iPad and iPod apps.</p>
+
+<h2>
+<a id="background" class="anchor" href="#background" aria-hidden="true"><span class="octicon octicon-link"></span></a>Background</h2>
+
+<p>The project is inspired by the <a href="http://kxml.sourceforge.net/">kXML</a> and <a href="http://en.wikipedia.org/wiki/StAX">StAX</a> serializers from the Java world.</p>
+
+<h2>
+<a id="features" class="anchor" href="#features" aria-hidden="true"><span class="octicon octicon-link"></span></a>Features</h2>
+
+<p>The most important features are</p>
+
+<ul>
+<li>Well-formed XML output</li>
+<li>Simple setup and usage</li>
+<li>Namespace support</li>
+<li>Low memory footprint</li>
+</ul>
+
+<h2>
+<a id="usage" class="anchor" href="#usage" aria-hidden="true"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>Usage is straightforward:</p>
+
+<pre><code>// allocate serializer
+XMLWriter* xmlWriter = [[XMLWriter alloc]init];
+
+// start writing XML elements
+[xmlWriter writeStartElement:@"Root"];
+[xmlWriter writeCharacters:@"Text content for root element"];
+[xmlWriter writeEndElement];
+
+// get the resulting XML string
+NSString* xml = [xmlWriter toString];
+</code></pre>
+
+<p>This produces the following XML string:</p>
+
+<pre><code>&lt;Root&gt;Text content for root element&lt;/Root&gt;
+</code></pre>
+
+<p>Head over to the <a href="http://code.google.com/p/xswi/w/list">wiki</a> for a better <a href="https://github.com/skjolber/xswi/tree/wiki/Introduction.md">introduction</a> and <a href="https://github.com/skjolber/xswi/tree/wiki/Examples.md">examples</a>.</p>
+
+<p>XML beginners are encouraged to see if this project is  <a href="https://github.com/skjolber/xswi/tree/wiki/Relevance.md">something for them</a>.</p>
+
+<h2>
+<a id="source-code" class="anchor" href="#source-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Source code</h2>
+
+<p>Download (<a href="https://github.com/skjolber/xswi/blob/master/xswi/XMLWriter.h">XMLWriter.h</a> and  <a href="https://github.com/skjolber/xswi/blob/master/xswi/XMLWriter.m">XMLWriter.m</a>), or run</p>
+
+<pre><code>git clone https://github.com/skjolber/xswi.git
+</code></pre>
+
+<p>No frameworks beyond the Foundation framework are necessary.</p>
+
+<h2>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h2>
+
+<p>The project is available under the <a href="http://www.opensource.org/licenses/mit-license.php">MIT</a> open source license. In a nuthsell, this means this project is <b>free to use in proprietary (also commercial) software </b> without opening up any of your own code or contributing derivate works.
+More details in the <a href="https://github.com/skjolber/xswi/tree/wiki/License.md">wiki</a>.</p>
+
+<h2>
+<a id="news" class="anchor" href="#news" aria-hidden="true"><span class="octicon octicon-link"></span></a>News</h2>
+
+<p>15th of March 2015: Project migrated from Google Code. Final stats: Approximately 3500 downloads.<br>
+30th September 2014: ARC is now supported. <br></p>
+
+<h2>
+<a id="history" class="anchor" href="#history" aria-hidden="true"><span class="octicon octicon-link"></span></a>History</h2>
+
+<p><b>Sept 30th 2014:</b> Version 1.05 released with fix for <a href="https://github.com/skjolber/xswi/issues/7">issue 7</a> (ARC).<br>
+<b>Aug 29th 2011:</b> Version 1.04 released with fix for <a href="https://github.com/skjolber/xswi/issues/5">issue 5</a>.<br>
+<b>May 12th 2011:</b> Version 1.03.1 released with code cleanup - no functional changes.<br>
+<b>March 20th 2011:</b> Version 1.03 released with fix for <a href="https://github.com/skjolber/xswi/issues/2">issue 2</a>.<br>
+<b>December 25th 2010:</b> Version 1.02 released with fix for <a href="https://github.com/skjolber/xswi/issues/1">issue 1</a>.<br>
+<b>November 19th 2010:</b> Version 1.01 released.<br>
+<b>October 19th 2010:</b> First version released!<br>
+<br></p>
+
+<h1>
+<a id="need-help" class="anchor" href="#need-help" aria-hidden="true"><span class="octicon octicon-link"></span></a>Need help?</h1>
+
+<p>If you need professional help with a project, get in touch.<br>
+<br></p>
+
+<h1>
+<a id="donate" class="anchor" href="#donate" aria-hidden="true"><span class="octicon octicon-link"></span></a>Donate</h1>
+
+<p>Chip in to add new features or test cases - divert time from paid work.<br>
+<br>
+<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&amp;hosted_button_id=G45FR5K42QGUS"><img src="https://www.paypal.com/en_US/i/btn/btn_donateCC_LG.gif"></a></p>
+
+<p></p><blockquote></blockquote>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">XSWI maintained by <a href="https://github.com/skjolber">skjolber</a></p>
+        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+              <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-18963960-1");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+
+  </body>
+</html>
