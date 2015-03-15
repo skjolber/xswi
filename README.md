@@ -47,7 +47,7 @@ git clone https://github.com/skjolber/xswi.git
 No frameworks beyond the Foundation framework are necessary.
 ## License ##
 The project is available under the [MIT](http://www.opensource.org/licenses/mit-license.php) open source license. In a nuthsell, this means this project is <b>free to use in proprietary (also commercial) software </b> without opening up any of your own code or contributing derivate works.
-More details in the [wiki](http://code.google.com/p/xswi/wiki/License).
+More details in the [wiki](https://github.com/skjolber/xswi/blob/wiki/License.md).
 
 ## News ##
 15th of March 2015: Project migrated from Google Code. Final stats: Approximately 3500 downloads.<br>
