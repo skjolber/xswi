@@ -1,7 +1,7 @@
 /***************************************************************************
  *
  * XMLWriter: An XML stream writer for iOS.
- * This file is part of the XSWI library - http://code.google.com/p/xswi/
+ * This file is part of the XSWI library - https://skjolber.github.io/xswi
  *
  * Copyright (C) 2010 by Thomas Rørvik Skjølberg
  *
