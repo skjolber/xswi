@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/skjolber/xswi.svg)](https://travis-ci.org/skjolber/xswi)
+
 # Overview #
 The XSWI project hosts a **simple, standalone XML stream writer for iOS** implemented in Objective-C. <br />
 As such, it can be used for iPhone, iPad and iPod apps.
