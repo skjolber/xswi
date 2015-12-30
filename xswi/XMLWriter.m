@@ -674,8 +674,6 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 					// invalid, skip
 				}
 			}
-		} else if (c < 0xE000) {
-			// invalid, skip
 		} else if (c <= 0xFFFD) {
 			// valid
 			rangeLength++;
