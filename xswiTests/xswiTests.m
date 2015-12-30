@@ -180,10 +180,10 @@
 	[xmlWriter writeEndElement];
 	[xmlWriter writeStartElement:@"body"];
     
-	for(int i = 0; i < [imageURLs count]; i++) {
+	for(NSUInteger i = 0; i < [imageURLs count]; i++) {
         
 		[xmlWriter writeStartElement:@"p"];
-		[xmlWriter writeCharacters:[NSString stringWithFormat:@"Image %i from", i]];
+		[xmlWriter writeCharacters:[NSString stringWithFormat:@"Image %li from", (unsigned long)i]];
         [xmlWriter writeStartElement:@"a"];
         [xmlWriter writeAttribute:@"href" value:[imageURLs objectAtIndex:i]];
         [xmlWriter writeCharacters:@"here"];
