@@ -223,11 +223,6 @@
 			attributes = {
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Thomas Rørvik Skjølberg";
-				TargetAttributes = {
-					4BFF621C19DAF47F0035CB78 = {
-						TestTargetID = 4BFF620119DAF47F0035CB78;
-					};
-				};
 			};
 			buildConfigurationList = 4BFF61FD19DAF47F0035CB78 /* Build configuration list for PBXProject "xswi" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -426,7 +421,6 @@
 		4BFF623219DAF47F0035CB78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xswi.app/xswi";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -441,7 +435,6 @@
 				INFOPLIST_FILE = "xswiTests/xswiTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -449,7 +442,6 @@
 		4BFF623319DAF47F0035CB78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/xswi.app/xswi";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -460,7 +452,6 @@
 				INFOPLIST_FILE = "xswiTests/xswiTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;
