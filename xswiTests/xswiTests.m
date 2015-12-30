@@ -302,6 +302,23 @@
 
 }
 
+- (void) testEmoji {
+    XMLWriter* xmlWriter = [[XMLWriter alloc]init];
 
+    [xmlWriter writeStartDocumentWithEncodingAndVersion:@"UTF-8" version:@"1.0"];
+    [xmlWriter writeStartElement:@"🎄Root"];
+    [xmlWriter writeStartElement:@"Element 🐚"];
+    [xmlWriter writeAttribute:@"🚗" value:@"🚕🚙🚌🚎"];
+    [xmlWriter writeCharacters:@"This is an example with emojis 👍"];
+    [xmlWriter writeEndElement];
+    [xmlWriter writeEndElement];
+
+    NSLog(@"%@", [xmlWriter toString]);
+
+    NSString* expected = @"<?xml version=\"1.0\" encoding=\"UTF-8\" ?><🎄Root><Element 🐚 🚗=\"🚕🚙🚌🚎\">This is an example with emojis 👍</Element 🐚></🎄Root>";
+
+    XCTAssertEqualObjects([xmlWriter toString], expected, @"testEmoji failed");
+
+}
 
 @end
