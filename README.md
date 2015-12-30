@@ -52,7 +52,8 @@ The project is available under the [MIT](http://www.opensource.org/licenses/mit-
 More details in the [wiki](https://github.com/skjolber/xswi/blob/wiki/License.md).
 
 ## News ##
-15th of March 2015: Project migrated from Google Code. Final stats: Approximately 3500 downloads.<br>
+30th December 2015: Emoji support, Travis build and project update by <a href="https://github.com/tsparber">tsparber</a><br>
+15th March 2015: Project migrated from Google Code. Final stats: Approximately 3500 downloads.<br>
 30th September 2014: ARC is now supported. <br>
 
 <h2>History</h2>
