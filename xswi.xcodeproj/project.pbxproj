@@ -427,9 +427,14 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "xswiTests/xswiTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Debug;
@@ -439,9 +444,14 @@
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xswi/xswi-Prefix.pch";
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
 				INFOPLIST_FILE = "xswiTests/xswiTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				WARNING_CFLAGS = (
+					"-Wall",
+					"-Wextra",
+				);
 				WRAPPER_EXTENSION = xctest;
 			};
 			name = Release;

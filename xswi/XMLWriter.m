@@ -45,7 +45,7 @@
 // write namespace attribute to stream
 - (void) writeNamespaceToStream:(NSString*)prefix namespaceURI:(NSString*)namespaceURI;
 // write a length of text to the stream with escaping
-- (void) writeEscapeCharacters:(const UniChar*)characters length:(int)length;
+- (void) writeEscapeCharacters:(const UniChar*)characters length:(NSUInteger)length;
 @end
 
 
@@ -94,7 +94,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 - (void) pushNamespaceStack {
 	// step namespace count - add the current namespace count
 	NSNumber* previousCount = [namespaceCounts lastObject];
-	if([namespaceURIs count] == [previousCount intValue]) {
+	if([namespaceURIs count] == [previousCount unsignedIntegerValue]) {
 		// the count is still the same
 		[namespaceCounts addObject:previousCount];
 	} else {
@@ -109,7 +109,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	if(openElement) {
 		// write namespace attributes in the namespace stack
 		NSNumber* previousCount = [namespaceCounts lastObject];
-		for(int i = [previousCount intValue]; i < [namespaceURIs count]; i++) {
+		for(NSUInteger i = [previousCount unsignedIntegerValue]; i < [namespaceURIs count]; i++) {
 			
 			// did we already write this namespace?
 			id written = [namespaceWritten objectAtIndex:i];
@@ -578,13 +578,13 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 			@throw([NSException exceptionWithName:@"XMLWriterException" reason:[NSString stringWithFormat:@"Could not allocate data buffer of %i unicode characters", 256] userInfo:NULL]);
 		}
 		
-		int count = 0;
+		NSUInteger count = 0;
 		do {
-			int length;
+			NSUInteger length;
 			if(count + 256 < [value length]) {
 				length = 256;
 			} else {
-				length = (int)[value length] - count;
+				length = [value length] - count;
 			}
 			
 			[value getCharacters:[data mutableBytes] range:NSMakeRange(count, length)];
@@ -598,11 +598,11 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	}
 }
 
-- (void)writeEscapeCharacters:(const UniChar*)characters length:(int)length {
-	int rangeStart = 0;
-	int rangeLength = 0;
+- (void)writeEscapeCharacters:(const UniChar*)characters length:(NSUInteger)length {
+	NSUInteger rangeStart = 0;
+	NSUInteger rangeLength = 0;
 	
-	for(int i = 0; i < length; i++) {
+	for(NSUInteger i = 0; i < length; i++) {
 		
 		UniChar c = characters[i];
 		if (c <= 0xd7ff)  {
