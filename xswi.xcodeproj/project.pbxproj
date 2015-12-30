@@ -421,11 +421,6 @@
 		4BFF623219DAF47F0035CB78 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xswi/xswi-Prefix.pch";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -442,11 +437,6 @@
 		4BFF623319DAF47F0035CB78 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(SDKROOT)/Developer/Library/Frameworks",
-					"$(inherited)",
-					"$(DEVELOPER_FRAMEWORKS_DIR)",
-				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "xswi/xswi-Prefix.pch";
 				INFOPLIST_FILE = "xswiTests/xswiTests-Info.plist";
