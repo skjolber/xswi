@@ -559,7 +559,10 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 }
 
 - (void) writeEscape:(NSString*)value {
-	
+    if (!value){
+        return;
+    }
+    
 	const UniChar *characters = CFStringGetCharactersPtr((CFStringRef)value);
 	
 	if (characters) {
