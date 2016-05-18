@@ -52,11 +52,13 @@ The project is available under the [MIT](http://www.opensource.org/licenses/mit-
 More details in the [wiki](https://github.com/skjolber/xswi/blob/wiki/License.md).
 
 ## News ##
+18th May 2016: Null check patch by Martin Vignali.<br>
 30th December 2015: Emoji support, Travis build and project update by <a href="https://github.com/tsparber">tsparber</a><br>
 15th March 2015: Project migrated from Google Code. Final stats: Approximately 3500 downloads.<br>
 30th September 2014: ARC is now supported. <br>
 
 <h2>History</h2>
+<b>May 18th 2016:</b> Version 1.06 released.<br>
 <b>Sept 30th 2014:</b> Version 1.05 released with fix for <a href='https://github.com/skjolber/xswi/issues/7'>issue 7</a> (ARC).<br>
 <b>Aug 29th 2011:</b> Version 1.04 released with fix for <a href='https://github.com/skjolber/xswi/issues/5'>issue 5</a>.<br>
 <b>May 12th 2011:</b> Version 1.03.1 released with code cleanup - no functional changes.<br>
