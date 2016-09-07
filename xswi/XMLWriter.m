@@ -136,7 +136,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 		// remove namespaces which now are out of scope, i.e. between the current and the previus count
 		NSNumber* previousCount = [namespaceCounts lastObject];
 		NSNumber* currentCount = [namespaceCounts objectAtIndex:([namespaceCounts count] - 2)];
-		for(int i = [previousCount intValue] - 1; i >= [currentCount intValue]; i--) {
+		for(NSUInteger i = [previousCount unsignedIntegerValue] - 1; i >= [currentCount unsignedIntegerValue]; i--) {
 			NSString* removedNamespaceURI = [namespaceURIs objectAtIndex:i];
 			NSString* removedPrefix = [namespaceURIPrefixMap objectForKey:removedNamespaceURI];
 			
@@ -567,7 +567,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 	
 	if (characters) {
 		// main flow
-		[self writeEscapeCharacters:characters length:(int)[value length]];
+		[self writeEscapeCharacters:characters length:[value length]];
 	} else {
 		// we need to read/copy the characters for some reason, from the docs of CFStringGetCharactersPtr:
 		// A pointer to a buffer of Unicode character or NULL if the internal storage of the CFString does not allow this to be returned efficiently.
@@ -603,7 +603,7 @@ static NSString *const XSI_NAMESPACE_URI_PREFIX = @"xsi";
 
 - (void)writeEscapeCharacters:(const UniChar*)characters length:(NSUInteger)length {
 	NSUInteger rangeStart = 0;
-	NSUInteger rangeLength = 0;
+	CFIndex rangeLength = 0;
 	
 	for(NSUInteger i = 0; i < length; i++) {
 		
